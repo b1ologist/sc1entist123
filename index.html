@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #000, #434343);
+      background: linear-gradient(135deg, #111, #434343);
       color: white;
       display: flex;
       flex-direction: column;
@@ -22,13 +22,7 @@
       text-align: center;
       min-height: 100vh;
       line-height: 1.6;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      padding: 20px;
-      margin: 0 auto;
+      position: relative;
     }
 
     header {
@@ -59,6 +53,12 @@
       border-radius: 15px;
       width: 100%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      transform: scale(0.98);
+      transition: transform 0.2s ease;
+    }
+
+    section:hover {
+      transform: scale(1);
     }
 
     h2 {
@@ -89,6 +89,7 @@
 
     .cta-button:hover {
       background-color: #f1f1f1;
+      transform: scale(1.05);
     }
 
     footer {
@@ -112,15 +113,7 @@
       text-decoration: underline;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
-
+    /* Card Grid with hover effect */
     .friends-grid {
       display: flex;
       flex-wrap: wrap;
@@ -130,18 +123,19 @@
     }
 
     .friend-card {
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       padding: 20px;
       width: 280px;
       text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .friend-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
     .friend-card img {
@@ -165,25 +159,7 @@
       font-weight: bold;
     }
 
-    /* Social Links */
-    .socials {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .socials a {
-      color: white;
-      font-size: 24px;
-      transition: transform 0.2s ease;
-    }
-
-    .socials a:hover {
-      transform: scale(1.2);
-    }
-
-    /* Burger menu */
+    /* Burger Menu */
     .burger {
       position: absolute;
       top: 20px;
@@ -215,6 +191,11 @@
       text-decoration: none;
       font-weight: bold;
       padding: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: scale(1.1);
     }
 
     @media (max-width: 768px) {
@@ -242,7 +223,7 @@
 </head>
 <body>
 
-  <header class="fade-in">
+  <header>
     <div class="burger" onclick="document.querySelector('nav').classList.toggle('active')">
       <span></span><span></span><span></span>
     </div>
@@ -257,7 +238,7 @@
     </div>
   </header>
 
-  <section id="about" class="fade-in">
+  <section id="about">
     <div class="container">
       <h2>Обо мне</h2>
       <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Профильное фото" class="profile-img">
@@ -265,9 +246,9 @@
     </div>
   </section>
 
-  <section id="friends" class="fade-in">
+  <section id="friends">
     <div class="container">
-      <h2>Мои друзья/коллега</h2>
+      <h2>Мои друзья/коллеги</h2>
       <div class="friends-grid">
         <div class="friend-card">
           <img src="den4icklo.png" alt="den4icklo">
@@ -291,18 +272,18 @@
     </div>
   </section>
 
-  <section id="contact" class="fade-in">
+  <section id="contact">
     <div class="container">
       <h2>Контакты</h2>
       <p>Если хочешь связаться со мной, напиши на почту или загляни в мои соцсети.</p>
       <a href="mailto:your-email@example.com" class="cta-button">Написать мне</a>
       <div class="socials">
-        <a href="https://t.me/yourtelegram" target="_blank"><i class="material-icons">send</i></a>
+        <a href="https://t.me/everybody69" target="_blank"><i class="material-icons">send</i></a>
       </div>
     </div>
   </section>
 
-  <footer class="fade-in">
+  <footer>
     <div class="container">
       <p>&copy; 2025 Все права защищены</p>
       <p>Follow me on <a href="https://www.twitch.tv/everybody69" target="_blank">Twitch</a></p>
