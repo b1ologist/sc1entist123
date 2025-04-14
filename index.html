@@ -4,8 +4,122 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Мой стильный сайт</title>
-  <link rel="stylesheet" href="assets/style.css">
   <style>
+    /* Сброс всех отступов и настроек */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #000000, #434343); /* Градиент на фоне */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Основной контейнер */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    /* Заголовок страницы */
+    header {
+      background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+      padding: 50px 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .sub-heading {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    /* Стили для секций */
+    section {
+      padding: 40px 20px;
+      margin: 20px 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Оформление для блока "Обо мне" */
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 30px;
+    }
+
+    /* Кнопка CTA */
+    .cta-button {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Подвал */
+    footer {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     /* Анимация для плавного появления */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
@@ -29,6 +143,7 @@
     <div class="container">
       <h2>Обо мне</h2>
       <div class="about-content">
+        <!-- Поменяй путь к изображению на своё, если нужно -->
         <img src="assets/profile.jpg" alt="Профильное фото" class="profile-img">
         <p>Привет! Я — стример, люблю видеоигры и немного занимаюсь спортом. На этом сайте ты найдешь информацию обо мне и моих социальных сетях.</p>
       </div>
