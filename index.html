@@ -118,6 +118,51 @@
     .fade-in {
       animation: fadeIn 1s ease-in-out;
     }
+
+    /* Карточки друзей */
+    .friends-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .friend-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .friend-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .friend-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .friend-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .friend-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -132,9 +177,39 @@
   <section id="about" class="fade-in">
     <div class="container">
       <h2>Обо мне</h2>
-      <!-- Замените src на своё фото -->
       <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Профильное фото" class="profile-img">
       <p>Привет! Я — стример, люблю видеоигры и немного занимаюсь спортом. На этом сайте ты найдешь информацию обо мне и моих социальных сетях.</p>
+    </div>
+  </section>
+
+  <section id="friends" class="fade-in">
+    <div class="container">
+      <h2>Мои друзья</h2>
+      <div class="friends-grid">
+        <!-- Карточка 1 -->
+        <div class="friend-card">
+          <img src="friend1.jpg" alt="Друг 1">
+          <h3>StreamerOne</h3>
+          <p>Весёлый и харизматичный стример, которого стоит заценить.</p>
+          <a href="https://www.twitch.tv/streamerone" target="_blank">Смотреть</a>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="friend-card">
+          <img src="friend2.jpg" alt="Друг 2">
+          <h3>GamerGirl</h3>
+          <p>Топовая стримерша с вайбом и ламповыми чатами.</p>
+          <a href="https://www.twitch.tv/gamergirl" target="_blank">Смотреть</a>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="friend-card">
+          <img src="friend3.jpg" alt="Друг 3">
+          <h3>ProPlayz</h3>
+          <p>Профессиональный игрок и просто крутейший человек.</p>
+          <a href="https://www.twitch.tv/proplayz" target="_blank">Смотреть</a>
+        </div>
+      </div>
     </div>
   </section>
 
