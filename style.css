@@ -1,33 +1,73 @@
+/* Общие стили */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background: linear-gradient(135deg, #000000, #434343); /* Черно-белый градиент */
+  color: white;
+  line-height: 1.6;
 }
 
 header {
-  background-color: #333;
-  color: white;
-  padding: 10px;
   text-align: center;
+  padding: 50px 0;
+  background: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: fadeIn 2s ease-out;
+}
+
+nav {
+  margin-top: 20px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
+  font-size: 1.2rem;
   margin: 0 15px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #f1f1f1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 section {
-  padding: 20px;
+  padding: 40px 20px;
   margin: 20px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.8); /* Тёмный фон для секций */
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px 0;
   text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out;
+}
+
