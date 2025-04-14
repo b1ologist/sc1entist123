@@ -21,6 +21,7 @@
       text-align: center;
       min-height: 100vh;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .container {
@@ -36,6 +37,7 @@
       border-radius: 20px;
       margin-top: 40px;
       box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      animation: fadeInDown 1s ease;
     }
 
     h1 {
@@ -57,6 +59,7 @@
       border-radius: 15px;
       width: 100%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      animation: fadeInUp 1s ease;
     }
 
     h2 {
@@ -81,12 +84,13 @@
       font-size: 1.2rem;
       text-decoration: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
       margin-top: 20px;
     }
 
     .cta-button:hover {
       background-color: #f1f1f1;
+      transform: scale(1.05);
     }
 
     footer {
@@ -110,6 +114,16 @@
       text-decoration: underline;
     }
 
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -119,7 +133,6 @@
       animation: fadeIn 1s ease-in-out;
     }
 
-    /* Карточки друзей */
     .friends-grid {
       display: flex;
       flex-wrap: wrap;
@@ -163,6 +176,34 @@
       text-decoration: underline;
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .friend-card {
+        width: 90%;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+        padding: 10px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -183,35 +224,30 @@
   </section>
 
   <section id="friends" class="fade-in">
-  <div class="container">
-    <h2>Мои друзья/коллега</h2>
-    <div class="friends-grid">
-      <!-- Карточка: den4icklo -->
-      <div class="friend-card">
-        <img src="den4icklo.png" alt="den4icklo">
-        <h3>den4icklo</h3>
-        <p>Заряженный на позитив, рубит как царь! Обязательно загляни на стрим.</p>
-        <a href="https://www.twitch.tv/den4icklo" target="_blank">Смотреть</a>
-      </div>
-
-      <!-- Карточка: lolsh1kc -->
-      <div class="friend-card">
-        <img src="lolsh1kc.png" alt="lolsh1kc">
-        <h3>lolsh1kc</h3>
-        <p>Мемы, скилл и атмосфера — всё в одном флаконе. Присоединяйся!</p>
-        <a href="https://www.twitch.tv/lolsh1kc" target="_blank">Смотреть</a>
-      </div>
-
-      <!-- Карточка: ech0noway -->
-      <div class="friend-card">
-        <img src="ech0noway.png" alt="ech0noway">
-        <h3>ech0noway</h3>
-        <p>Настоящий гейм-мудрец, каждый стрим как шоу. Подключайся!</p>
-        <a href="https://www.twitch.tv/ech0noway" target="_blank">Смотреть</a>
+    <div class="container">
+      <h2>Мои друзья/коллега</h2>
+      <div class="friends-grid">
+        <div class="friend-card">
+          <img src="den4icklo.png" alt="den4icklo">
+          <h3>den4icklo</h3>
+          <p>Заряженный на позитив, рубит как царь! Обязательно загляни на стрим.</p>
+          <a href="https://www.twitch.tv/den4icklo" target="_blank">Смотреть</a>
+        </div>
+        <div class="friend-card">
+          <img src="lolsh1kc.png" alt="lolsh1kc">
+          <h3>lolsh1kc</h3>
+          <p>Мемы, скилл и атмосфера — всё в одном флаконе. Присоединяйся!</p>
+          <a href="https://www.twitch.tv/lolsh1kc" target="_blank">Смотреть</a>
+        </div>
+        <div class="friend-card">
+          <img src="ech0noway.png" alt="ech0noway">
+          <h3>ech0noway</h3>
+          <p>Настоящий гейм-мудрец, каждый стрим как шоу. Подключайся!</p>
+          <a href="https://www.twitch.tv/ech0noway" target="_blank">Смотреть</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="contact" class="fade-in">
     <div class="container">
