@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>biobody</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -21,7 +22,6 @@
       text-align: center;
       min-height: 100vh;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     .container {
@@ -37,7 +37,7 @@
       border-radius: 20px;
       margin-top: 40px;
       box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      animation: fadeInDown 1s ease;
+      position: relative;
     }
 
     h1 {
@@ -59,7 +59,6 @@
       border-radius: 15px;
       width: 100%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-      animation: fadeInUp 1s ease;
     }
 
     h2 {
@@ -84,13 +83,12 @@
       font-size: 1.2rem;
       text-decoration: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s ease;
       margin-top: 20px;
     }
 
     .cta-button:hover {
       background-color: #f1f1f1;
-      transform: scale(1.05);
     }
 
     footer {
@@ -112,16 +110,6 @@
 
     footer a:hover {
       text-decoration: underline;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -177,31 +165,77 @@
       font-weight: bold;
     }
 
+    /* Social Links */
+    .socials {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .socials a {
+      color: white;
+      font-size: 24px;
+      transition: transform 0.2s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+
+    /* Burger menu */
+    .burger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+    }
+
+    .burger span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+    }
+
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 999;
+        border-radius: 0 0 15px 15px;
       }
 
-      h2 {
-        font-size: 1.5rem;
+      nav.active {
+        display: flex;
       }
 
-      .profile-img {
-        width: 150px;
-        height: 150px;
-      }
-
-      .friend-card {
-        width: 90%;
-      }
-
-      .container {
-        padding: 10px;
-      }
-
-      .cta-button {
-        font-size: 1rem;
-        padding: 10px 16px;
+      .burger {
+        display: block;
       }
     }
   </style>
@@ -209,9 +243,17 @@
 <body>
 
   <header class="fade-in">
+    <div class="burger" onclick="document.querySelector('nav').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
     <div class="container">
       <h1>Добро пожаловать!</h1>
       <p class="sub-heading">Я стример и геймер, готов рассказать о себе!</p>
+      <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#friends">Друзья</a>
+        <a href="#contact">Контакты</a>
+      </nav>
     </div>
   </header>
 
@@ -254,6 +296,9 @@
       <h2>Контакты</h2>
       <p>Если хочешь связаться со мной, напиши на почту или загляни в мои соцсети.</p>
       <a href="mailto:your-email@example.com" class="cta-button">Написать мне</a>
+      <div class="socials">
+        <a href="https://t.me/yourtelegram" target="_blank"><i class="material-icons">send</i></a>
+      </div>
     </div>
   </section>
 
