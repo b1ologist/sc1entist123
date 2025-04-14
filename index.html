@@ -6,7 +6,7 @@
   <title>Мой стильный сайт</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Стили для анимации */
+    /* Анимация для плавного появления */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -19,25 +19,35 @@
 </head>
 <body>
   <header class="fade-in">
-    <h1>Добро пожаловать на мой сайт</h1>
-    <nav>
-      <a href="#about" class="fade-in">Обо мне</a> | 
-      <a href="#contact" class="fade-in">Контакты</a>
-    </nav>
+    <div class="container">
+      <h1>Добро пожаловать на мой сайт</h1>
+      <p class="sub-heading">Я стример и геймер, готов рассказать о себе!</p>
+    </div>
   </header>
 
   <section id="about" class="fade-in">
-    <h2>Обо мне</h2>
-    <p>Я стример, геймер и немного спортсмен. Добро пожаловать на мой стильный сайт с черно-белым дизайном!</p>
+    <div class="container">
+      <h2>Обо мне</h2>
+      <div class="about-content">
+        <img src="assets/profile.jpg" alt="Профильное фото" class="profile-img">
+        <p>Привет! Я — стример, люблю видеоигры и немного занимаюсь спортом. На этом сайте ты найдешь информацию обо мне и моих социальных сетях.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="fade-in">
-    <h2>Контакты</h2>
-    <p>Можно найти меня на Twitch, Instagram и других соцсетях.</p>
+    <div class="container">
+      <h2>Контакты</h2>
+      <p>Если хочешь связаться со мной, напиши на почту или загляни в мои соцсети.</p>
+      <a href="mailto:your-email@example.com" class="cta-button">Написать мне</a>
+    </div>
   </section>
 
   <footer class="fade-in">
-    <p>&copy; 2025 Все права защищены</p>
+    <div class="container">
+      <p>&copy; 2025 Все права защищены</p>
+      <p>Follow me on <a href="https://www.twitch.tv" target="_blank">Twitch</a></p>
+    </div>
   </footer>
 </body>
 </html>
