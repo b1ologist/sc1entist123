@@ -3,31 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мой сайт</title>
+  <title>Мой стильный сайт</title>
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Стили для анимации */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Добро пожаловать на мой сайт!</h1>
+  <header class="fade-in">
+    <h1>Добро пожаловать на мой сайт</h1>
     <nav>
-      <a href="#about">Обо мне</a> | 
-      <a href="#contact">Контакты</a>
+      <a href="#about" class="fade-in">Обо мне</a> | 
+      <a href="#contact" class="fade-in">Контакты</a>
     </nav>
   </header>
 
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>Обо мне</h2>
-    <p>Я — стример, геймер и немного спортсмен. Добро пожаловать на мой сайт!</p>
+    <p>Я стример, геймер и немного спортсмен. Добро пожаловать на мой стильный сайт с черно-белым дизайном!</p>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Контакты</h2>
-    <p>Ты можешь найти меня на Twitch и других соцсетях.</p>
+    <p>Можно найти меня на Twitch, Instagram и других соцсетях.</p>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Все права защищены.</p>
+  <footer class="fade-in">
+    <p>&copy; 2025 Все права защищены</p>
   </footer>
 </body>
 </html>
-
