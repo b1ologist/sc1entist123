@@ -21,6 +21,12 @@
       text-align: center;
       min-height: 100vh;
       line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme {
+      background: #121212;
+      color: #eee;
     }
 
     .container {
@@ -81,12 +87,13 @@
       font-size: 1.2rem;
       text-decoration: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
       margin-top: 20px;
     }
 
     .cta-button:hover {
       background-color: #f1f1f1;
+      animation: pulse 0.6s infinite alternate;
     }
 
     footer {
@@ -100,14 +107,30 @@
       margin: 5px 0;
     }
 
-    footer a {
+    a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    a:hover::before {
+      transform: translate(-50%, -50%) scale(1);
     }
 
     /* Карточки друзей */
@@ -147,14 +170,6 @@
       font-size: 1.3rem;
     }
 
-    .friend-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #fff;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-
     /* Анимация появления */
     .fade-up {
       opacity: 0;
@@ -167,82 +182,26 @@
       transform: translateY(0);
     }
 
-    /* Эффект параллакса */
-    .parallax {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('background.jpg');
-      background-attachment: fixed;
-      background-size: cover;
-      z-index: -1;
-    }
-
-    /* Эффект пульсации кнопки */
-    .cta-button:hover {
-      animation: pulse 0.6s infinite alternate;
-    }
-
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(1.1);
-      }
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
     }
 
-    /* Ссылки с эффектом волн */
-    a {
-      position: relative;
-      overflow: hidden;
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .telegram-icon {
+      margin-top: 15px;
       display: inline-block;
-      color: #fff;
     }
 
-    a::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300%;
-      height: 300%;
-      background: rgba(255, 255, 255, 0.2);
-      transition: all 0.4s ease;
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-    }
-
-    a:hover::before {
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    /* Секция отзыва */
-    .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 20px;
-      width: 280px;
-      text-align: center;
-      margin: 10px;
-    }
-
-    .testimonial-card p {
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    .testimonial-card footer {
-      font-weight: bold;
-    }
-
-    /* Переключение темы */
-    .dark-theme {
-      background-color: #121212;
-      color: white;
+    .telegram-icon img {
+      width: 32px;
+      height: 32px;
     }
   </style>
 </head>
@@ -291,44 +250,38 @@
     </div>
   </section>
 
-  <section id="testimonials" class="fade-up">
-    <div class="container">
-      <h2>Отзывы</h2>
-      <div class="testimonial-card">
-        <p>"Это лучший стример! Всегда рад видеть его трансляции!"</p>
-        <footer>- Alex</footer>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="fade-up">
     <div class="container">
       <h2>Контакты</h2>
-      <p>Если хочешь связаться со мной, напиши на почту или загляни в мои соцсети.</p>
+      <p>Если хочешь связаться со мной, напиши на почту:</p>
       <a href="mailto:maksatbusy@gmail.com" class="cta-button">Написать мне</a>
+      <div class="telegram-icon">
+        <a href="https://t.me/everybody69" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+        </a>
+      </div>
     </div>
   </section>
 
   <footer class="fade-up">
     <div class="container">
       <p>&copy; 2025 Все права защищены</p>
-      <p>Follow me on <a href="https://t.me/everybody69" target="_blank">Telegram</a></p>
     </div>
   </footer>
 
-  <!-- Переключение темы -->
-  <button id="theme-toggle" class="cta-button">Переключить тему</button>
+  <button id="theme-toggle" class="cta-button theme-toggle">Переключить тему</button>
 
   <script>
-    window.addEventListener('scroll', function() {
-      const elements = document.querySelectorAll('.fade-up');
-      elements.forEach((el) => {
+    // Анимация появления
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.fade-up').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight) {
           el.classList.add('visible');
         }
       });
     });
 
+    // Переключение темы
     const toggleButton = document.getElementById('theme-toggle');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-theme');
