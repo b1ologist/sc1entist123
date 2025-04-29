@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Обо мне — Mini Bio</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-oHDEc8XedWy3u6Qw4tzhTsDKM1zODG1ms8Z5o7Y5kR7T2Fvvh7jQ6vF2XFwEAU8gYk6PZ+4r/F+MZ2e7v7h7kg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Preload font -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/orbitron/v15/yMJRMIlzdpvBhQQL_Qq7dys.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Polyfill for older browsers -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default,Array.prototype.includes"></script>
   <style>
+    /* Autoprefixer will add vendor prefixes for compatibility */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Orbitron', sans-serif;
@@ -30,19 +37,38 @@
       animation: fadeIn 1s ease-in-out;
     }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
-    h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 2px; }
-    h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    h1 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 10px; letter-spacing: 2px; }
+    h2 { font-size: clamp(1.5rem, 4vw, 1.8rem); margin-bottom: 15px; }
     p { margin-bottom: 15px; }
     ul { text-align: left; margin: 0 auto 15px; display: inline-block; }
     li { margin-bottom: 10px; }
     .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
     .cta-button { display: inline-block; background-color: #fff; color: #000; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
     .cta-button:hover { background-color: #f1f1f1; }
+    /* Responsive breakpoints */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container { padding: 15px; }
+    }
+    @media (min-width: 1025px) and (max-width: 1440px) {
+      .container { padding: 40px; }
+    }
+    @media (min-width: 1441px) {
+      .container { max-width: 1400px; }
+    }
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body { background: linear-gradient(135deg, #000, #222); color: #ddd; }
+      header, section, footer { background: rgba(20,20,20,0.7); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Моя фотография" class="profile-img">
+    <picture>
+      <source type="image/webp" srcset="8f8dd5ca65147f252a143f528584f2b8.webp 150w, 8f8dd5ca65147f252a143f528584f2b8@2x.webp 300w">
+      <source type="image/jpeg" srcset="8f8dd5ca65147f252a143f528584f2b8.jpg 150w, 8f8dd5ca65147f252a143f528584f2b8@2x.jpg 300w">
+      <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Моя фотография" class="profile-img" loading="lazy">
+    </picture>
     <p>Здесь собрано всё обо мне</p>
   </header>
 
@@ -87,3 +113,4 @@
   </footer>
 </body>
 </html>
+
