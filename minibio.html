@@ -23,9 +23,7 @@
       position: relative;
       overflow-x: hidden;
     }
-    body.night {
-      background: #000;
-    }
+    body.night { background: #000; }
     header, section, footer {
       width: 100%; max-width: 800px;
       background: rgba(0,0,0,0.7);
@@ -46,19 +44,9 @@
     .subtitle { font-size: 1rem; color: #ccc; margin-bottom: 15px; }
     .cta-button { display: inline-block; background-color: #fff; color: #000; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
     .cta-button:hover { background-color: #f1f1f1; }
-
     /* Звёзды */
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 3s infinite;
-    }
-    @keyframes twinkle {
-      0%,100% { opacity: 0.8; }
-      50% { opacity: 0.2; }
-    }
+    .star { position: absolute; background: white; border-radius: 50%; opacity: 0.8; animation: twinkle 3s infinite; }
+    @keyframes twinkle { 0%,100% { opacity: 0.8; } 50% { opacity: 0.2; } }
     /* Фантастические твари */
     .beasts-grid {
       display: grid;
@@ -83,20 +71,9 @@
     .beast-card h3 { margin: 10px 0 5px; font-size: 1.1rem; }
     .beast-card p { font-size: 0.9rem; }
     /* Toggle */
-    .toggle-container {
-      position: absolute;
-      top: 20px; right: 20px;
-    }
+    .toggle-container { position: absolute; top: 20px; right: 20px; }
     .toggle-container input { display: none; }
-    .toggle-container label {
-      cursor: pointer;
-      background: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      color: #000;
-      font-size: 0.9rem;
-      user-select: none;
-    }
+    .toggle-container label { cursor: pointer; background: #fff; padding: 5px 10px; border-radius: 5px; color: #000; font-size: 0.9rem; user-select: none; }
   </style>
 </head>
 <body>
@@ -130,7 +107,7 @@
     <h2>Фантастические твари</h2>
     <div class="beasts-grid">
       <div class="beast-card">
-        <img src="niffler.jpg" alt="Нюхль (Niffler)>
+        <img src="niffler.jpg" alt="Нюхль (Niffler)">
         <h3>Нюхль</h3>
         <p>Любит всё блестящее и часто ворует украшения.</p>
         <p><a href="https://harrypotter.fandom.com/ru/wiki/Нюхлер" target="_blank">Подробнее</a></p>
