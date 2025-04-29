@@ -35,7 +35,8 @@
     p { margin-bottom: 15px; }
     ul { text-align: left; margin: 0 auto 15px; display: inline-block; }
     li { margin-bottom: 10px; }
-    .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+    .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+    .subtitle { font-size: 1rem; color: #ccc; margin-bottom: 15px; }
     .cta-button { display: inline-block; background-color: #fff; color: #000; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
     .cta-button:hover { background-color: #f1f1f1; }
 
@@ -56,10 +57,12 @@
     .beast-card img {
       width: 100%;
       height: 100px;
-      object-fit: contain;
+      object-fit: cover;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 10px;
+      transition: transform 0.3s;
     }
+    .beast-card img:hover { transform: scale(1.1); }
     .beast-card h3 { margin: 10px 0 5px; font-size: 1.1rem; }
     .beast-card p { font-size: 0.9rem; }
   </style>
@@ -67,7 +70,7 @@
 <body>
   <header>
     <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Моя фотография" class="profile-img">
-    <p>Здесь собрано всё обо мне</p>
+    <h1>Магический сайт</h1>
   </header>
 
   <section id="about">
@@ -141,4 +144,3 @@
   </footer>
 </body>
 </html>
-
