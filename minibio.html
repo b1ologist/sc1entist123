@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обо мне — Mini Bio</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #000, #434343);
+      color: #fff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    header, section, footer {
+      width: 100%; max-width: 800px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 15px;
+      margin: 20px 0;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.8);
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+    h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 2px; }
+    h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    p { margin-bottom: 15px; }
+    ul { text-align: left; margin: 0 auto 15px; display: inline-block; }
+    li { margin-bottom: 10px; }
+    .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+    .cta-button { display: inline-block; background-color: #fff; color: #000; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    .cta-button:hover { background-color: #f1f1f1; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Моя фотография" class="profile-img">
+    <h1>Это — мой мини-сайт</h1>
+    <p>Здесь собрано всё обо мне</p>
+  </header>
+
+  <section id="about">
+    <h2>Обо мне</h2>
+    <p>Меня зовут Максат, я стример и геймер из Казахстана. Уже более 3 лет я веду прямые эфиры на Twitch, делюсь впечатлениями от новых игр и общаюсь с аудиторией.</p>
+    <p>В свободное время я занимаюсь спортом: играю в футбол и тренируюсь в зале, поддерживая форму.</p>
+  </section>
+
+  <section id="games">
+    <h2>Любимые игры</h2>
+    <ul>
+      <li>Valorant — командный шутер с высокой динамикой</li>
+      <li>Cyberpunk 2077 — атмосферные ролевые приключения</li>
+      <li>League of Legends — тактика и командная игра</li>
+      <li>Dark Souls 3 — для любителей вызова и сложного геймплея</li>
+    </ul>
+  </section>
+
+  <section id="schedule">
+    <h2>Расписание стримов</h2>
+    <ul>
+      <li>Понедельник — 19:00–22:00 (CET)</li>
+      <li>Среда — 19:00–22:00 (CET)</li>
+      <li>Пятница — 20:00–23:00 (CET)</li>
+      <li>Суббота — 18:00–21:00 (CET)</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Контакты</h2>
+    <p>Пишите мне на почту или заходите в соцсети:</p>
+    <p><a href="mailto:maksatbusy@gmail.com" class="cta-button">Email</a></p>
+    <p><a href="https://t.me/everybody69" target="_blank" class="cta-button">Telegram</a></p>
+    <p><a href="https://www.twitch.tv/everybody69" target="_blank" class="cta-button">Twitch</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Максат. Все права защищены.</p>
+  </footer>
+</body>
+</html>
