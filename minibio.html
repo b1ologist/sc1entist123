@@ -19,6 +19,12 @@
       text-align: center;
       min-height: 100vh;
       padding: 20px;
+      transition: background 1s;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body.night {
+      background: #000;
     }
     header, section, footer {
       width: 100%; max-width: 800px;
@@ -28,6 +34,7 @@
       padding: 30px;
       box-shadow: 0 0 15px rgba(0,0,0,0.8);
       animation: fadeIn 1s ease-in-out;
+      position: relative;
     }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
     h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 2px; }
@@ -40,6 +47,18 @@
     .cta-button { display: inline-block; background-color: #fff; color: #000; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
     .cta-button:hover { background-color: #f1f1f1; }
 
+    /* Звёзды */
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 3s infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: 0.8; }
+      50% { opacity: 0.2; }
+    }
     /* Фантастические твари */
     .beasts-grid {
       display: grid;
@@ -60,14 +79,31 @@
       object-fit: cover;
       margin-bottom: 10px;
       border-radius: 10px;
-      transition: transform 0.3s;
     }
-    .beast-card img:hover { transform: scale(1.1); }
     .beast-card h3 { margin: 10px 0 5px; font-size: 1.1rem; }
     .beast-card p { font-size: 0.9rem; }
+    /* Toggle */
+    .toggle-container {
+      position: absolute;
+      top: 20px; right: 20px;
+    }
+    .toggle-container input { display: none; }
+    .toggle-container label {
+      cursor: pointer;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #000;
+      font-size: 0.9rem;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
+  <div class="toggle-container">
+    <input type="checkbox" id="nightToggle">
+    <label for="nightToggle">Ночное небо</label>
+  </div>
   <header>
     <img src="8f8dd5ca65147f252a143f528584f2b8.jpg" alt="Моя фотография" class="profile-img">
     <h1>Магический сайт</h1>
@@ -94,7 +130,7 @@
     <h2>Фантастические твари</h2>
     <div class="beasts-grid">
       <div class="beast-card">
-        <img src="niffler.jpg" alt="Нюхль (Niffler)">
+        <img src="niffler.jpg" alt="Нюхль (Niffler)>
         <h3>Нюхль</h3>
         <p>Любит всё блестящее и часто ворует украшения.</p>
         <p><a href="https://harrypotter.fandom.com/ru/wiki/Нюхлер" target="_blank">Подробнее</a></p>
@@ -142,5 +178,30 @@
   <footer>
     <p>&copy; 2025 everybody69. Все права защищены.</p>
   </footer>
+
+  <script>
+    // Создание звёзд
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 3 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      star.style.top = Math.random() * window.innerHeight + 'px';
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.append(star);
+      setTimeout(() => star.remove(), 5000);
+    }
+    // Звёзды при включенном ночном режиме
+    const toggle = document.getElementById('nightToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('night', toggle.checked);
+      if (toggle.checked) {
+        for (let i = 0; i < 50; i++) setTimeout(createStar, i * 200);
+      } else {
+        document.querySelectorAll('.star').forEach(s => s.remove());
+      }
+    });
+  </script>
 </body>
 </html>
